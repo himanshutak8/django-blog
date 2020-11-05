@@ -29,7 +29,8 @@ pipeline {
                                         then
                                             exit 0
                                         else
-                                            echo "test case not failed"
+                                            exit 1
+					    echo "Test Cases Failed............!!!!!!!!!!!"
                                         fi
                                 else
                                         sudo docker run -dit -p 8086:8000 -v /var/lib/jenkins/workspace/seed_job_pipeline/:/code --name test_env himanshutak8/testnew:v1
@@ -40,7 +41,8 @@ pipeline {
                                         then
                                             exit 0
                                         else
-                                            echo "test case not failed"
+					    exit 1
+                                            echo "Test Cases Failed............!!!!!!!!!!!"
                                         fi
                                 fi
                             '''

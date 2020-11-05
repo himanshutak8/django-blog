@@ -25,7 +25,7 @@ pipeline {
                                         sudo docker exec test_env sed -i "s/ALLOWED_HOSTS = [[]]/ALLOWED_HOSTS = ['*',]/g" /code/mysite/settings.py
                                         
                                         sudo docker exec test_env python3.6 /code/manage.py runserver 0.0.0.0:8000 &
-                                        if sudo docker exec test_env pytest -v  /unit_testing/webtest.py
+                                        if sudo docker exec test_env pytest -v  /unit_testing/test_web.py
                                         then
                                             exit 0
                                         else
@@ -37,7 +37,7 @@ pipeline {
                                         sudo docker exec test_env sed -i "s/ALLOWED_HOSTS = [[]]/ALLOWED_HOSTS = ['*',]/g" /code/mysite/settings.py
                                         
                                         sudo docker exec test_env python3.6 /code/manage.py runserver 0.0.0.0:8000 &
-                                        if sudo docker exec test_env pytest -v  /unit_testing/webtest.py
+                                        if sudo docker exec test_env pytest -v  /unit_testing/test_web.py
                                         then
                                             exit 0
                                         else

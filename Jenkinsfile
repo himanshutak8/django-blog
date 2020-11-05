@@ -12,11 +12,11 @@ pipeline {
                         script {
                             sh '''
                                 #!/bin/bash
-                                if sudo docker images | grep himanshutak8/test
+                                if sudo docker images | grep himanshutak8/testnew
                                 then
                                        echo "Image Available"
                                 else
-                                       sudo docker pull himanshutak8/test:v1
+                                       sudo docker pull himanshutak8/testnew:v1
                                 fi 
                                 if sudo docker ps | grep test_env
                                 then
@@ -33,7 +33,7 @@ pipeline {
                                             exit 1
                                         fi
                                 else
-                                        sudo docker run -dit -p 8086:8000 -v /var/lib/jenkins/workspace/seed_job_pipeline/:/code --name test_env himanshutak8/test:v1
+                                        sudo docker run -dit -p 8086:8000 -v /var/lib/jenkins/workspace/seed_job_pipeline/:/code --name test_env himanshutak8/testnew:v1
                                         sudo docker exec test_env sed -i "s/ALLOWED_HOSTS = [[]]/ALLOWED_HOSTS = ['*',]/g" /code/mysite/settings.py
                                         
                                         sudo docker exec test_env python3.6 /code/manage.py runserver 0.0.0.0:8000 &

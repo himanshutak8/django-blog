@@ -14,7 +14,7 @@ pipeline {
                                 #!/bin/bash
                                 if sudo docker images | grep himanshutak8/pytest
                                 then
-                                       echo "Image Available"
+                                       echo "Image Available 111"
                                 else
                                        sudo docker pull himanshutak8/pytest:v1
                                 fi 

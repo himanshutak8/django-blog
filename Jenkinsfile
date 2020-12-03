@@ -68,7 +68,7 @@ pipeline {
                                         fi
                                         if sudo docker ps | grep prod_server
                                         then
-                                                echo "already running"
+                                                echo "already running new changes"
                                                 
                                                 sudo docker exec prod_server sed -i "s/ALLOWED_HOSTS = [[]]/ALLOWED_HOSTS = ['*',]/g" /code/mysite/settings.py
                                                 
@@ -86,4 +86,3 @@ pipeline {
                 }
         }
 }
-#hello
